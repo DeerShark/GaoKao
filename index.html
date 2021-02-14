@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>高考倒计时 - 高考冲鸭</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="keywords" content="高考倒计时,高考加油,2020年高考,高考励志,加油冲鸭">
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+		$.ajax({
+		url: "daily.php",
+		type: "get",
+		data: "",
+		dataType: "json",
+		success: function(e) {
+			if(e.errno==0){
+				document.getElementById("dailysentence").innerHTML = e.content
+				document.getElementById("dailysentence_c").innerHTML = e.note
+				document.getElementById("dailysentence0").innerHTML = e.content
+				document.getElementById("dailysentence_c0").innerHTML = e.note
+				document.getElementById("today_pic").src = e.picture2
+			}else{
+				document.getElementById("dailysentence").innerHTML = "Gollege entrance examination,fighting!"
+				document.getElementById("dailysentence_c").innerHTML = "高考加油鸭！"
+			}
+		},
+		error: function(e) {
+				document.getElementById("dailysentence").innerHTML = "Gollege entrance examination,fighting!"
+				document.getElementById("dailysentence_c").innerHTML = "高考加油鸭！"
+		}
+		})
+		$.ajax({
+		url: "time.php",
+		type: "get",
+		data: "",
+		dataType: "json",
+		success: function(e) {
+			if(e.code==200){
+				document.getElementById("msg").innerHTML = e.msg
+				document.getElementById("days").innerHTML = e.days
+			}else{
+				document.getElementById("msg").innerHTML = "距离高考还有"
+				document.getElementById("days").innerHTML = "获取失败了~刷新重试~"
+			}
+		},
+		error: function(e) {
+				document.getElementById("msg").innerHTML = "距离高考还有"
+				document.getElementById("days").innerHTML = "获取失败了~刷新重试~"
+		}
+		})
+		</script>
+		<link rel="stylesheet" href="css/main.css">
+		<noscript><link rel="stylesheet" href="css/noscript.css"></noscript>
+	</head>
+	<body class="is-preload">
+	<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Header -->
+					<header id="header">
+						<div style="width:120px; height:120px; border-radius:50%; overflow:hidden;">
+							<img src="https://q1.qlogo.cn/g?b=qq&nk=1243101939&s=640" width="120px" hight="300px" />
+						</div>
+						<div class="content">
+							<div class="inner" style="padding-top: 20px;padding-bottom: 7px;">
+							<h2 id="msg"></h2>
+								<h1 id="days"></h1>
+							<p id="dailysentence"></p>
+							<p id="dailysentence_c"></p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#blog">我的博客</a></li>
+								<li><a href="#english">今日英语</a></li>
+								<li><a href="#music">推荐音乐</a></li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Intro -->
+							<article id="blog">
+								<h2 class="major">流点星</h2>
+								<!--这里放图片-->
+								<span class="image main"><img src="#"></span>
+								<p>这是我平常分享事物和技术的平台！</p>
+								<p>同时也是高三学子一枚！</p>
+								<p>网址：<a href="https://www.liues.cn" target="_blank">www.liues.cn</a></p>
+							</article>
+
+						<!-- english -->
+							<article id="english">
+								<h2 class="major">今日英语</h2>
+								<h3 id="daytime"></h3>
+							<p id="dailysentence0"></p>
+							<p id="dailysentence_c0"></p>
+								<span class="image main"><img id="today_pic" src="images/6217c6fde60596a1.jpg" alt></span>
+
+							</article>
+
+						<!-- music -->
+							<article id="music">
+								<h2 class="major">推荐音乐</h2>
+								<h3>《桜の廊下のあなた》</h3>
+								<br/>
+								<h3>此曲热评献给正在努力的你！</h3>
+								<ul class="alt">
+										<li>吹灭读书灯，一身都是月。目标，北大。&nbsp;&nbsp;<u>"小洪是宝贝h"</u></li>
+										<li>这个寒假会冲出很多黑马 也会有很多星星坠落.&nbsp;&nbsp;<u>"沈私-"</u></li>
+										<li>乾坤未定，你我皆是黑马 乾坤既定，你我扭转乾坤 2020年高考，各位加油&nbsp;&nbsp;<u>"最佳代号-孤狼"</u></li>
+										<li>乌云渐渐散开 阳光带着一丝恬静 温柔地穿过白云间隙 照在你些许羞涩的脸颊上 发梢还未过肩 风带着风信子吹过 柳叶悄悄亲吻湖面 那是我们第一次见面&nbsp;&nbsp;<u>"Caringguy格调"</u></li>
+										<li>文言文很拗口 英语课文很繁琐 历史时间点很难记 理科题很头疼 五点起十二点睡 还有乱七八糟的 讨厌的人 但我还是想拼一把 我想去的地方很远 想见的人很优秀 喜欢的人能发光 最重要的 我不服&nbsp;&nbsp;<u>"梨小姐_Wa"</u></li>
+										<li>目标 清华建筑系 一张张套卷 一次次模考 我们就这样跌跌撞撞懵懵懂懂长大了 为了6月的笑颜 永不止步 诸君 山顶见&nbsp;&nbsp;<u>"层林尽染cjl"</u></li>
+									</ul>
+							</article>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+	                  <p class="copyright">乾坤未定，你我皆是黑马！<br/>祝所有高考考生金榜题名！考试顺利！</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg">
+			</div>
+
+		<!-- Scripts -->
+			<script src="js/jquery.min.js"></script>
+			<script src="js/browser.min.js"></script>
+			<script src="js/breakpoints.min.js"></script>
+			<script src="js/util.js"></script>
+			<script src="js/main.js"></script>
+			<script>
+		var now = new Date();
+        var year = now.getFullYear();       //年
+        var month = now.getMonth() + 1;     //月
+        var day = now.getDate();
+		document.getElementById("daytime").innerHTML = year+'年'+month+'月'+day+'日'
+			</script>
+
+	</body>
+</html>
